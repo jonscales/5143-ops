@@ -1,0 +1,385 @@
+ 
+clear history
+ls
+ls
+ls
+ls
+ls -l
+ls -l
+/usr/bin/python3
+reset = "\033[0m"
+ls -l
+ls
+ls -l
+ls -l
+ls -l
+ls -l
+ls -l
+ls -lah
+ls -lah
+ls -la
+/usr/bin/python3 /home/marcos/P01/5143-P01/Marcos_Project/cmd_pkg/cmdWc.py
+ls
+/usr/bin/python3 /home/marcos/P01/5143-P01/Marcos_Project/cmd_pkg/cmdLs.py
+ls
+/usr/bin/python3 /home/marcos/P01/5143-P01/Marcos_Project/cmd_pkg/cmdLs.py
+ls
+/usr/bin/python3 /home/marcos/P01/5143-P01/Marcos_Project/cmd_pkg/cmdLs.py
+ls
+ls
+ls -l
+ls -la
+ls -lah
+ls
+ls
+ls
+ls
+ls -lah | wc
+ls | wc
+print(ls)
+cat meat.txt | wc
+ls | wc
+ls -l | wc
+wc | wc -l
+wc | wc -l
+wc | wc -l
+wc | wc -l
+wc | wc -l
+wc | wc -la
+wc -l | wc -c
+wc -l | wc 
+wc -l meat.txt | wc
+cat meat.txt
+cat meat.txt
+cat meat.txt
+cat meat.txt pig.txt
+cat meat.txt newbacon.txt
+cat meat.txt newbacon.txt -n
+cat meat.txt newbacon.txt -n
+cat meat.txt newbacon.txt 
+cat meat.txt newbacon.txt | wc
+cat meat.txt newbacon.txt | wc -l
+wc meat.txt | cat newbacon.txt
+wc meat.txt | cat newbacon.txt -n
+ls | cat
+ls | wc
+cat meat.txt newbacon.txt 
+cat meat.txt newbacon.txt
+cat meat.txt newbacon.txt
+cat meat.txt newbacon.txt -n
+cat meat.txt newbacon.txt -n | wc
+ls -help
+ls -help
+cat meat.txt newbacon.txt -n --help
+/usr/bin/python3 /home/marcos/P01/5143-P01/Marcos_Project/cmd_pkg/cmdGrep.py
+grep bacon meat.txt | wc
+grep bacon meat.txt | wc
+grep bacon meat.txt | wc
+wc meat.txt
+wc meat.txt | grep meat
+wc meat.txt | grep meat
+ 
+ 
+grep bacon meat.txt | wc
+grep bacon meat.txt 
+grep bacon meat.txt | grep tail
+head meat.txt
+head meat.txt
+head meat.txt
+head meat.txt
+head meat.txt
+head meat.txt | wc
+head meat.txt | wc
+ls -l | head
+ls -l | head
+ls -l | head
+ls -l | head -3
+ls -l | head -n 3
+head meat.txt | tail -4
+head meat.txt | tail -4
+head meat.txt 
+head meat.txt | tail -4/usr/bin/python3 /home/marcos/P01/5143-P01/Marcos_Project/cmd_pkg/cmdTail.py
+head meat.txt
+head meat.txt | tail -n 4
+clear
+head meat.txt | tail -n 4
+head meat.txt | tail -n 4
+head meat.txt | tail -n 4
+tail meat.txt | head -n 5 | wc
+tail meat.txt | head -n 5 | wc -l
+tail meat.txt | head -n 5 | wc -lc
+tail meat.txt | head -n 5 | wc -l c
+tail meat.txt | head -n 5 | wc -l c
+tail meat.txt | head -n 5 | wc -l -c
+pwd
+pwd | wc
+/usr/bin/python3 /home/marcos/P01/5143-P01/Marcos_Project/cmd_pkg/cmdSort.py
+sort meat.txt | head -n 4
+sort meat.txt | head -n 4 | wc
+sort meat.txt | head -n 15 | tail -n 5 | wc
+ls -lah | head -n 6 | wc
+ls -lah | head -n 6
+ls -lah 
+ls -l
+ls -l
+ls -l /home/marcos/P01
+ls -l | head
+ls -l | sort | head
+ls -l | sort | head > winner.txt
+cat winner.txt
+cat meat.txt
+cat meat.txt
+ls -l | sort | head > winner.txt
+ls -l | sort | head > winner1.txt
+ls -l | sort | head > winner1.txt
+ls -l | sort | head > winner1.txt
+ls -l | sort | head 
+ls -l | sort | head > winner1.txt
+ls -l | sort | head > winner1.txt
+ls -l | sort | tail -3 > winner1.txt
+ls -l | sort | tail -n 3 > winner1.txt
+ls -l | sort | tail -n 3 > winner1.txt
+ls -l | tail -n 5 > winner1.txt
+cat meat.txt
+cat meat.txt | head
+cat meat.txt | wc
+ls | cat
+ls -l | tail -n 5 | cat
+ls -l | tail -n 5 | cat | sort
+<<<<<<< HEAD
+ls
+ls -l
+ls -l | cat
+ls -l | cat meat.txt
+ls -l | tail -n 5 | cat
+ls -l | tail -n 5 | cat
+ls -l | tail -n 5 > winner1.txt
+wc pig.txt
+head pig.txt | wc
+head pig.txt | tail -n 6 | wc
+head pig.txt | tail -n 6
+head pig.txt | tail -n 6 > wcpig.txt
+=======
+grep -l bacon /plantains/baconisfruit.txt | wc -l 
+grep -l bacon \plantains\baconisfruit.txt | wc -l
+grep -l bacon \plantains\baconisfruit.txt | wc -l
+grep -l /plantains/baconisfruit.txt | wc -l
+grep -l bacon plantains/baconisfruit.txt | wc -l
+grep -l bacon baconisfruit.txt 
+grep -l bacon plantains/baconisfruit.txt 
+/bin/python3 /home/jon/5143-P01-3/Marcos_Project/cmd_pkg/cmdGrep.py
+chmod baconator.txt 777
+/bin/python3 /home/jon/5143-P01-3/Marcos_Project/shell_loop.py
+ls -l
+chmod 777 baconator.txt
+ls -l
+Chmod 777 baconatory.txt
+Chmod 777 baconator.txt
+ls -l
+Chmod 777 pig.txt
+ls -l
+/bin/python3 /home/jon/5143-P01-3/Marcos_Project/cmd_pkg/cmdChmod.py
+ls -l
+Chmod 666 baconator.txt
+Chmod baconator.txt 666
+Chmod 666baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod baconator.txt 666
+Chmod cmdCp.py 777
+Chmod baconator.txt 666
+Chmod 777 baconator.txt
+ls -l
+Chmod 777 baconisfruit.txt
+ls -l
+Chmod 666 baconator.txt
+ls  -l
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 777 baconisfruit.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 666 baconator.txt
+Chmod 777 baconisfruit.txt
+Chmod 777 /baconisfruit.txt
+Chmod 777 meat.txt
+ls -l
+Chmod 666 baconator.txt
+Chmod 666 meat.txt
+ls -l
+Chmod 777 pig.txt
+ls -l
+Chmod 666 baconator.txt
+Chmod baconout.txt
+Chmod 777 baconout.txt
+ls -l
+Chmod 777 meat.txt
+ls -l
+Chmod newbacon.txt 777
+ls -l
+Chmod somestuff.txt 600
+ls -l
+Chmod 040 winner1.txt
+ls -l
+Chmod 761 baconforerver.txt
+Chmod 761 baconforeverandever.txt
+ls -l
+Chmod 666 baconater.txt
+cd peaches
+Chmod /peaches/newbacon.txt 777
+Chmod peaches/newbacon.txt 777
+cd 
+..
+cd ..
+ls -L
+ls -l
+Mkdir fish 
+mkdir fish
+cd fish
+ls -lah
+cp pig.txt fish
+chmod 666 fish/pig.txt
+ls -lah
+cd fish | ls -lah
+cd fish | mv pig.txt peaches | cd .. 
+ls -lah
+cd fish | mv pig.txt peaches | cd .. | cd peaches |ls -lah
+cd fish | mv pig.txt /peaches |cd .. | cd peaches | ls -lah
+cd fish
+ls -lah
+chmod 777 peaches
+ls -lah
+chmod 777 peaches
+ls -lah
+chmod --help
+grep bacon pit.txt
+grep bacon pig.txt
+grep bacon pig.txt baconlines
+ls -lah
+cp baconlines baconwords.txt
+ls -lah
+ls -lah | grep meat |/bin/python3 /home/jon/5143-P01-3/Marcos_Project/shell_loop.py
+ls -lah | grep -l meat
+ls -lah | grep meat
+la -lah |grep meat 
+grep bacon meat.txt
+grep -l bacon meats.txt
+grep -l bacon meats-1.txt
+grep -l bacon meats-1.txt 
+grep -l bacon meats-1.txt|wc -wc
+grep -l bacon meats-1.txt|wc -l
+grep bacon meat.txt|wc -l 
+ls 
+ls -lah
+chmod 666 baconout.txt
+ls -lah
+chmod 777 baconout.txt | ls -lah
+ls -lah | grep bacon
+ls -lah |grep -l bacon
+ls -lah | grep jon
+ls =lah |grep bacon
+grep bacon meats-1.txt
+grep bacon meat.txt
+grep -l bacon meat.txt
+grep -l bacon meat.txt
+grep -l bacon meat.txt baconwords.txt
+grep -l bacon meat.txt 
+grep -l bacon meat.txt
+ls -lah | grep -l meat
+ls -lah
+ls -lah|grep -l bacon
+>>>>>>> 41bb21a02fdbb44ed5b0f10d72c96827c8601c37
+
+clear
+grep the meat.txt
+grep bacon meat.txt
+chmod meat.txt 666
+ls -l
+chmod meat.txt 777
+ls -l
+chmod -x meat.txt
+ls -lah
+mdir bananas
+mkdir bananas
+mkdir bananas
+cd bananas
+pwd
+mv somestuff.txt bananas
+mv somestuff.txt /bananas
+mv somestuff.txt \bananas
+cp somestuff.txt bananas
+cp bananas/somefile.txt somefile/otherfile.txt
+cp bananas/somestuff.txt somefile/otherfile.txt
+rm -rf bananas
+less meat.txt
+less meat.txt
+head meat.txt
+head meat.txt -n 4
+head meat.txt 4 -n
+tail -n 4 meat.txt
+grep -l bacon pig.txt
+grep -l bacon pig.txt
+grep -l bacon pig.txt
+grep -l bacon pig.txt
+grep -l bacon pig.txt
+ls | grep .txt
+ls | grep .txt
+grep bacon pig.txt | cp file.txt
+tail meat.txt -n 10
+tail meat.txt -n 5
+wc -w meat.txt
+grep bacon meat.txt | wc
+history
+history
+history
+history
+tail meat.txt -n 5
+tail meat.txt -n 5
+tail meat.txt -n 5
+clear
+sort meat.txt
+sort meat.txt -n
+grep bacon meat.txt | wc -l
+cat meat.txt pig.txt > new.txt
+pwd | wc
+pwd
+ls -lah | grep bacon 
+grep bacon pig.txt 
+grep bacon pit.txt | wc -wc
+grep bacon pig.txt | wc -wc
+chmod 777 pig.txt
+ls -lah
+ls -lah | grep bacon
+ls -lah | grep marcos
+grep marcos pig.txt
+ls -lah|grep bacon
+ls -lah | grep bacon
+ls -lah | grep bacon
+ls -lah
+ls -lah | grep bacon
+ls -lah|grep bacon
+ls -lah | grep bacon
+ls -lah | grep bacon
+ls -lah | grep bacon
+ls -lah | grep bacon
+/bin/python3 /home/jon/5143-P01-5/Marcos_Project/shell_loop.py
+ls -lah
+ls -lah | grep bacon
+ls -lah | grep bacon
+/bin/python3 /home/jon/5143-P01-5/Marcos_Project/sexit
+ls -lah | grep bacon
+cp grep.py grep_color.py
+cp cmdGrep.py cmdGrep_color.py
+cp /Marcos_Project/cmd_pkg/cmdGrep.py cmdGrep_color.py
+grif 2
+grif -2
+grif -1
+grif -3
