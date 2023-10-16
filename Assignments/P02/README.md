@@ -16,7 +16,7 @@ This is a project written in python that simulates a file system using a sqlite 
 
 #### Instructions
 
-- Run the walkthrough.py program
+- Run the walkthroughthewoods.py program
 - Each command from the list below is executed with a variety of flags and parameters
                                      
 
