@@ -39,10 +39,10 @@ These commands are demonstrated in the walkthrough.py program
 ### Shell Program Files ###
 | Program | Description | Author |
 | :-----: | :---------: | :----: |
-| [walkthrough.py] | main demo program | Modified from Griffin | 
-| [sqliteCRUD.py] | methods to interface with database| Modified from Griffin  |
+| [walkthroughthewoods.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P02/walkthroughthewoods.py) | main demo program | Modified from Griffin | 
+| [sqliteCRUD.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P02/sqliteCRUD.py) | methods to interface with database| Modified from Griffin  |
 | [filesysdata.csv](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P02/filesysdata.csv) | data for database table| Modified from Griffin |
-| [project2.sqlite] | sqlite table containing filesystem |  |
+| [project2.sqlite](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P02/project2.sqlite) | sqlite table containing filesystem |  |
  
 
 ***References***
