@@ -39,10 +39,10 @@ These commands are demonstrated in the walkthrough.py program
 ### Shell Program Files ###
 | Program | Description | Author |
 | :-----: | :---------: | :----: |
-| walkthrough.py | main demo program | Modified from Griffin | 
-| sqliteCRUD.py | methods to interface with database| Modified from Griffin  |
-| filesysdata.csv | data for database table| Modified from Griffin |
-| filesystem.sqlite | sqlite table containing filesystem |  |
+| [walkthrough.py] | main demo program | Modified from Griffin | 
+| [sqliteCRUD.py] | methods to interface with database| Modified from Griffin  |
+| [filesysdata.csv] | data for database table| Modified from Griffin |
+| [filesystem.sqlite] | sqlite table containing filesystem |  |
  
 
 ***References***
