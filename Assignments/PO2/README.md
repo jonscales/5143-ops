@@ -21,10 +21,10 @@ This is a project written in python that simulates a file system using a sqlite 
 ### Shell Program Files ###
 |                  Program                   |            Description             |        Author         |
 | :----------------------------------------: | :--------------------------------: | :-------------------: |
-| [walkthrough.py](./walkthroughthewoods.py) |         main demo program          |   Jon, Marcos, Pat    |
-|      [sqliteCRUD.py](./sqliteCRUD.py)      | methods to interface with database |   Marcos , Griffin    |
-|    [filesysdata.csv](./filesysdata.csv)    |      data for database table       | Modified from Griffin |
-|  [filesystem.sqlite](./filesystem.sqlite)  | sqlite table containing filesystem |           -           |
+| [walkthrough.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/PO2/walkthrough.py) |         main demo program          |   Jon, Marcos, Pat    |
+|      [sqliteCRUD.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/PO2/sqlite.py)     | methods to interface with database |   Marcos , Griffin    |
+|    [filesysdata.csv](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/PO2/filesysdata.csv)    |      data for database table       | Modified from Griffin |
+|  [filesystem.sqlite](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/PO2/filesystem.sqlite) | sqlite table containing filesystem |           -           |
  
 #### Instructions
 
