@@ -21,7 +21,7 @@ This is a project written in python that simulates a file system using a sqlite 
                                      
 
 ### Commands List: ###
-These commands are demonstrated in the walkthrough.py program
+These commands are demonstrated in the walkthroughthewoods.py program
 
 | Command |    Description    | Notes |
 | :-----: | :---------------: |  :---: |
