@@ -41,7 +41,7 @@ These commands are demonstrated in the walkthrough.py program
 | :-----: | :---------: | :----: |
 | [walkthrough.py] | main demo program | Modified from Griffin | 
 | [sqliteCRUD.py] | methods to interface with database| Modified from Griffin  |
-| [filesysdata.csv] | data for database table| Modified from Griffin |
+| [filesysdata.csv](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P02/filesysdata.csv) | data for database table| Modified from Griffin |
 | [project2.sqlite] | sqlite table containing filesystem |  |
  
 
