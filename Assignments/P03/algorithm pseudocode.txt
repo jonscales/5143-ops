@@ -1,0 +1,104 @@
+
+1.	start the system clock 
+system_clock = 0
+
+
+2.	Add +1 to wait time of every process in ready queue so that total time of process in system can be calculated
+for process in ready_queue:
+    process.wait_time += 1
+
+3.	move anything in new queue to ready queue (nothing will move on first loop)
+
+# Check if the new queue is not empty before performing actions
+
+if new_queue: # Actions related to the new queue
+
+    for process in new_queue:
+    if process.arrival_time == system_clock:
+        move process from new_queue to ready_queue
+else: # Handle the case when the new queue is empty
+    
+
+4.	check if pcb arrival time = system clock time, if yes add pcb to new queue
+
+
+5.	decrement all current CPU and IO processes bursts' values by 1 – these are the index[0] values in the cpuburst or the io burst respectively
+
+for process in cpu_queue:
+    process.cpubursts[0] -= 1
+
+for process in io_queue:
+    process.iobursts[0] -= 1
+
+
+6.	check if CPU queue has one member (can only have one member)
+
+if cpu_queue is not empty:
+    process = cpu_queue[0]
+    ...
+7.	if CPU queue process’s cpubursts[0] = 0, check if this is the only value remaining in the cpubursrt list
+8.	if this was that processes last cpu burst and it = 0 move this process to the finished queue  & move next process from ready queue to cpu queue
+9.	if CPU queue processes cpuburst is not last, but is 0 move it to the IO queue and move next process from ready queue to cpu queue
+10.	if cpu queue process is != 0, leave it in cpu queue to decrement in next loop
+
+if process.cpubursts[0] == 0:
+    if len(process.cpubursts) == 1:
+        move process from cpu_queue to finished_queue
+        select next process from ready_queue and move it to cpu_queue
+    else:
+        move process from cpu_queue to io_queue
+        select next process from ready_queue and move it to cpu_queue
+
+# Assuming you have a PCB instance called 'pcb'
+if pcb.currBurstIs == 'CPU':
+    if pcb.cpubursts[0] == 0:
+        pcb.cpubursts.pop(0)  # Remove the element at index 0
+
+elif pcb.currBurstIs == 'IO':
+    if pcb.iobursts[0] == 0:
+        pcb.iobursts.pop(0)  # Remove the element at index 0
+
+
+11.	 check if any IO queue process’s io burst[0] = 0, if so, move that process to the ready queue other wise leave processes in IO queue
+for process in io_queue:
+    if process.iobursts[0] == 0:
+        move process from io_queue to ready_queue
+
+
+12.	pause 2 seconds time.sleep(2)
+sleep(2)
+13. advance the clock
+self.clock.advanceClock(1)
+14.	repeat loop
+repeat from step 2
+
+
+
+
+deque methods
+
+from collections import deque
+
+# Creating a deque
+my_deque = deque()
+
+# Adding elements to the right end
+my_deque.append(1)
+my_deque.append(2)
+
+# Adding elements to the left end
+my_deque.appendleft(0)
+
+# Removing elements from the right end
+value = my_deque.pop()
+
+# Removing elements from the left end
+value = my_deque.popleft()
+
+# Creating a bounded deque with a maximum length of 3
+bounded_deque = deque(maxlen=3)
+bounded_deque.append(1)
+bounded_deque.append(2)
+bounded_deque.append(3)
+# Adding one more element will remove the oldest element to maintain the length limit
+bounded_deque.append(4)

@@ -1,0 +1,43 @@
+{
+    "kwargs": {
+        "nj": "4"
+    },
+    "jobs": [
+        {
+            "arrivalTime": 0,
+            "process_id": 0,
+            "priority": 4,
+            "cpuBursts": [
+                16,
+                14,
+                11,
+                11,
+                12
+            ],
+            "ioBursts": [
+                12,
+                12,
+                12,
+                13
+            ]
+        },
+        {
+            "arrivalTime": 1,
+            "process_id": 3,
+            "priority": 1,
+            "cpuBursts": [
+                17,
+                17,
+                10,
+                12,
+                16
+            ],
+            "ioBursts": [
+                13,
+                13,
+                12,
+                11
+            ]
+        }
+    ]
+}
