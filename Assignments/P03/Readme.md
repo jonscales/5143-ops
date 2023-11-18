@@ -72,13 +72,13 @@ Each of these data points were displayed both to the terminal as well as written
 |    [rr.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/rr.py)    |     stand alone file to run round robin simulation     | Scales, Lopez |
 |[fcfs.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfs.py)| stand alone file to run FCFS simulation | Scales, Lopez |
 |[fcfsp.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfsp.py)|stand alone file to run priority based FCFS simulation | Scales, Lopez|
-|[SEven.dat] (https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SEven.dat)|   |  Mitchell|
+|[SEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SEven.dat)|   |  Mitchell|
 |[SCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SCPUInt.dat)|   |  Mitchell|
 |[SIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SIOInt.dat)|   |  Mitchell|
-|[MEven.dat] (https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MEven.dat)|   |  Mitchell|
+|[MEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MEven.dat)|   |  Mitchell|
 |[MCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MCPUInt.dat)|   |  Mitchell|
 |[MIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MIOInt.dat)|   |  Mitchell|
-|[LEven.dat] (https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LEven.dat)|   |  Mitchell|
+|[LEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LEven.dat)|   |  Mitchell|
 |[LCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LCPUInt.dat)|   |  Mitchell|
 |[LIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LIOInt.dat)|   |  Mitchell|
 
