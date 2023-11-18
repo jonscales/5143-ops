@@ -88,7 +88,7 @@ Each of these data points were displayed both to the terminal as well as written
 
 #### Instructions
 
-- Run [sim.py] program with parameters from the list below. 
+- Run [sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) program with parameters from the list below. 
                                      
 ### Commands List: ###
 The sim.py is run from the command line with these parameters : 
