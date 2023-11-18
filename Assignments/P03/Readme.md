@@ -86,12 +86,12 @@ Each of these data points were displayed both to the terminal as well as written
 |[LIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LIOInt.dat)| input data file  |  Mitchell|
 |[outputM](https://github.com/jonscales/5143-opsys-102/tree/main/Assignments/P03/outputM)|Folder with simulation run data output .csv files|Lopez |
 
-#### Instructions
+### Instructions
 
 - Run [sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) program with parameters from the list below. 
                                      
-### Commands List: ###
-The sim.py is run from the command line with these parameters : 
+#### Commands List 
+[sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) is run from the command line with these parameters : 
 
 | Parameter |       Syntax       |       notes       |
 | :-----: | :----------------------: | :---------------: |
