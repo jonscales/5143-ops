@@ -67,20 +67,21 @@ Each of these data points were displayed both to the terminal as well as written
 ### Scheduler Simulation Program Files ###
 |                  Program                   |            Description             |        Author         |
 | :----------------------------------------: | :--------------------------------: | :-------------------: |
-| [sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) |         main simulation program          |  Lopez, Scales   |
-|      [generate_input.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/generate_input.py)   | used to generate PCBs as a datafile |    Griffin  |
-|    [rr.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/rr.py)    |     stand alone file to run round robin simulation     | Scales, Lopez |
-|[fcfs.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfs.py)| stand alone file to run FCFS simulation | Scales, Lopez |
+|[sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) |simulation program based on main with added output display tables|  Scales, Lopez  |
+|[main.py]() | initial merged version of standalone programs | Lopez, Scales|
 |[fcfsp.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfsp.py)|stand alone file to run priority based FCFS simulation | Scales, Lopez|
-|[SEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SEven.dat)|   |  Mitchell|
-|[SCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SCPUInt.dat)|   |  Mitchell|
-|[SIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SIOInt.dat)|   |  Mitchell|
-|[MEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MEven.dat)|   |  Mitchell|
-|[MCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MCPUInt.dat)|   |  Mitchell|
-|[MIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MIOInt.dat)|   |  Mitchell|
-|[LEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LEven.dat)|   |  Mitchell|
-|[LCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LCPUInt.dat)|   |  Mitchell|
-|[LIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LIOInt.dat)|   |  Mitchell|
+|[fcfs.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfs.py)| stand alone file to run FCFS simulation | Scales, Lopez |
+| [rr.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/rr.py)    |     stand alone file to run round robin simulation     | Scales, Lopez |
+| [generate_input.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/generate_input.py)   | used to generate PCBs as a datafile |    Griffin  |
+|[SEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SEven.dat)|  input data file |  Mitchell|
+|[SCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SCPUInt.dat)| input data file  |  Mitchell|
+|[SIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SIOInt.dat)| input data file  |  Mitchell|
+|[MEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MEven.dat)| input data file  |  Mitchell|
+|[MCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MCPUInt.dat)|  input data file |  Mitchell|
+|[MIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MIOInt.dat)|input data file   |  Mitchell|
+|[LEven.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LEven.dat)|  input data file |  Mitchell|
+|[LCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LCPUInt.dat)|  input data file |  Mitchell|
+|[LIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LIOInt.dat)| input data file  |  Mitchell|
 
 
  
