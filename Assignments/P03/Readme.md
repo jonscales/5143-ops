@@ -83,8 +83,6 @@ Each of these data points were displayed both to the terminal as well as written
 |[LCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LCPUInt.dat)|  input data file |  Mitchell|
 |[LIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LIOInt.dat)| input data file  |  Mitchell|
 
-
- 
 #### Instructions
 
 - Run [sim.py] program with parameters from the list below. 
