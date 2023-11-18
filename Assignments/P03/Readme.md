@@ -67,9 +67,21 @@ Each of these data points were displayed both to the terminal as well as written
 ### Scheduler Simulation Program Files ###
 |                  Program                   |            Description             |        Author         |
 | :----------------------------------------: | :--------------------------------: | :-------------------: |
-| [sim.py] |         main simulation program          |     |
-|      [dataloop.py]    | loop to run simulation on muliple input files to gather aggregate data|      |
-|    [SEven.dat]    |      data for simulation      | |
+| [sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) |         main simulation program          |  Lopez, Scales   |
+|      [generate_input.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/generate_input.py)   | used to generate PCBs as a datafile |    Griffin  |
+|    [rr.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/rr.py)    |     stand alone file to run round robin simulation     | Scales, Lopez |
+|[fcfs.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfs.py)| stand alone file to run FCFS simulation | Scales, Lopez |
+|[fcfsp.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfsp.py)|stand alone file to run priority based FCFS simulation | Scales, Lopez|
+|[SEven.dat] (https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SEven.dat)|   |  Mitchell|
+|[SCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SCPUInt.dat)|   |  Mitchell|
+|[SIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/SIOInt.dat)|   |  Mitchell|
+|[MEven.dat] (https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MEven.dat)|   |  Mitchell|
+|[MCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MCPUInt.dat)|   |  Mitchell|
+|[MIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/MIOInt.dat)|   |  Mitchell|
+|[LEven.dat] (https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LEven.dat)|   |  Mitchell|
+|[LCPUInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LCPUInt.dat)|   |  Mitchell|
+|[LIOInt.dat](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/LIOInt.dat)|   |  Mitchell|
+
 
  
 #### Instructions
