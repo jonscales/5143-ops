@@ -29,17 +29,17 @@ Three scheduler algorithms were implemented.  First-come-first-served (FCFS), pr
 
 During each clock tick the following events occur:
 1. The time of PCBs in the wait or ready states is incremented +1
-2. Any PCB in the new state if moved to ready
+2. Any PCB in the new state is moved to ready
 3. Any newly arrived PCBs are added to the new state
 4. Currently running bursts of PCBs in the CPU and IO states are decremented -1
 5. For round robin simulations, CPU processes are checked to see if their timeslice is expired and returned to the ready state
 6. Any PCB in CPU or IO which has completed its current burst is moved to the wait or ready state respectively
 7. Based on available CPU state slots, PCBs in the ready state are added to the CPU 
 8. Based on available IO state slots, PCBs in the wait state are added to the IO 
-9. Information for each PCB is displayed to the terminal with rich table
+9. Information for each PCB is displayed to the terminal as a rich table
 10. The clock is incremented +1
 
-The simulation runs as a while loop with the end condition as all states (lists) except Terminated are empty. 
+The simulation runs as a while loop with the end condition as all states (lists) except Terminated are empty. Each PCB is an instance of a class kept in a dictionary and contains, as attributes, all of the collected data for the PCB as it was passed through the simulated system. 
 
 #### Simulation Output
 The following information is collected for each PCB regarding its progression through the simulated system:
