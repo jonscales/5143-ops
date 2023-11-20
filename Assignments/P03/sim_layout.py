@@ -528,7 +528,7 @@ class Simulator:
                                         if pcb.sliceTimer == self.timeSlice:
                                             self.readyQueue.append(pcb)
                                             pcb.changeState('Ready')
-                                            m7=f'At [bold yellow]{self.clock.currentTime()}[/]: [bold blue] PCB {pcb.pid}[/] [bold orange_red1]timed out, moved to ready[/]'
+                                            m7=f'At time [bold yellow]{self.clock.currentTime()}[/]: [bold blue] PCB {pcb.pid}[/] [bold orange_red1]timed out[/]'
                                             messages.append(m7)
                                             pcb.sliceTimer = 0
                                     else:
