@@ -10,9 +10,6 @@ from rich.console import Console
 from rich.layout import Layout
 from rich.panel import Panel
 
-
-
-
 class PCB:
     """
     This class generates a process control block (PCB) from information read in from 
@@ -40,14 +37,23 @@ class PCB:
         self.TAT = self.getTotalTime()
 
     def setTimeEnter(self,clock):
+        """
+        returns the time the PCB enters the new queue
+        """
         self.timeEnter = clock.currentTime()
         return self.timeEnter
     
     def setTimeExit(self,clock):
+        """
+        returns the time the PCB enters the finished queue
+        """
         self.timeExit = clock.currentTime()
         return self.timeExit
     
     def setTAT(self):
+        """
+        returns the total time the PCB is in the system
+        """
         self.TAT = self.timeExit - self.timeEnter
         return self.TAT
 
@@ -80,12 +86,16 @@ class PCB:
             return self.iobursts[self.currBurstIndex]
 
     def getCurrentBurstTime(self):
+        """
+        returns the time of the current burst
+        """
         return self.bursts[self.currBurstIndex]
         
     def getTotalTime(self):
         """
         returns the total time the PCB spends in the system
         cpu time + io time + wait time + ready time + new time (1)
+        duplicates def setTAT() method
         """
         total = self.cpuTime + self.ioTime + self.readyTime + self.waitTime + 1
         self.TAT = total
@@ -119,10 +129,10 @@ class PCB:
             return round((self.cpuTime + self.ioTime)/(self.readyTime + self.waitTime),2)
     
     def getcpu_util(self):
-            """
-            returns the cpu utilization ( % of time spent in CPU)
-            """
-            return round((self.cpuTime /self.getTotalTime()*100),2)
+        """
+        returns the cpu utilization ( % of time spent in CPU)
+        """
+        return round((self.cpuTime /self.getTotalTime()*100),2)
     
     def __str__(self):
         """
@@ -382,15 +392,18 @@ class Simulator:
         header_panel = Panel(self.headTable(self.datfile, self.num_cpus, self.num_ios), expand=True, border_style="blue")
         progress_panel = Panel(self.generateTable(self.clock.currentTime()),expand=True, border_style="green")
         messages_panel= Panel(self.messagesTable([]), expand=True, border_style='red')
+        footer_panel=Panel(self.runningstatTable(self.clock.currentTime()), expand=True, border_style='blue')
     
         layout.split_column(
             Layout(name="header",size=10),
-            Layout(name="body",size=20)
+            Layout(name="body",ratio=2),
+            Layout(name="footer", ratio = 2)
                 )
         layout["header"].update(header_panel)
         layout["body"].split_row(Layout(name="progress",ratio=3), Layout(name="messages",ratio=1))
         layout["body"]["progress"].update(progress_panel)
         layout["body"]["messages"].update(messages_panel)
+        layout["footer"].update(footer_panel)
         messages=[]
         #initiate a live display to show the processes
         with Live(layout, refresh_per_second=10) as live:
@@ -456,6 +469,8 @@ class Simulator:
                             if pcb.cpubursts[0] <= 0:
                                 if len(pcb.cpubursts) <= 1:
                                     pcb.changeState('Finished')
+                                    pcb.setTimeExit(self.clock)
+                                    pcb.getTotalTime()
                                     self.finishedQueue.append(pcb)
                                     self.CPUQueue.remove(pcb)
                                     m2=f'At time[bold yellow] {self.clock.currentTime()}[/]: [bold blue]PCB {pcb.pid}[/] [bold red]terminated[/]'
@@ -468,8 +483,8 @@ class Simulator:
                                     self.CPUQueue.remove(pcb)
                                     if pcb.cpubursts:
                                         pcb.cpubursts.pop(0)
-
-                        self.CPUQueue = [pcb for pcb in self.CPUQueue if pcb.state == "CPU"]
+                                    
+                            self.CPUQueue = [pcb for pcb in self.CPUQueue if pcb.state == "CPU"]
 
                         # Move Ready Queue to CPU Queue
                         if self.readyQueue and loopIteration >=1 and (not self.CPUQueue or len(self.CPUQueue)< self.num_cpus):
@@ -481,10 +496,11 @@ class Simulator:
                                 m4=f'At time[bold yellow] {self.clock.currentTime()}[/]: [bold blue]PCB {pcb.pid}[/] entered [bold green]CPU[/]'
                                 messages.append(m4)
                             self.readyQueue = self.readyQueue[num_to_assign:]
+                            self.CPUQueue = [pcb for pcb in self.CPUQueue if pcb.state == "CPU"]
                         else:
                             if loopIteration >=1 and self.CPUQueue==[] and len(self.finishedQueue) == len(self.processes):
                                 complete = True
-                                break
+                               
                     else:
                         if self.readyQueue and (not self.CPUQueue or len(self.CPUQueue) < self.num_cpus):
                             num_to_assign = min(self.num_cpus - len(self.CPUQueue), len(self.readyQueue))
@@ -609,20 +625,15 @@ class Simulator:
                
                 clock = self.clock.currentTime()
                 
-                #print(f"end of loop {loopIteration}")
-                # self.headTable(self.datfile,self.num_cpus,self.num_ios)
-                # self.generateTable(clock)
-                # self.messagesTable(messages)
-                #layout['header'].update(Panel(self.headTable(self.datfile, self.num_cpus, self.num_ios)))
+                
                 layout['body']['progress'].update(Panel(self.generateTable(clock)))
                 layout['body']['messages'].update(Panel(self.messagesTable(messages)))
+                layout['footer'].update(Panel(self.runningstatTable(clock)))
                 if self.CPUQueue==[] and len(self.finishedQueue)==len(self.processes):
                     complete==True
                 loopIteration +=1
                 self.clock.advanceClock(1)    
                 
-                    
-
         return complete
     
     # Methods for output visualization
@@ -637,6 +648,28 @@ class Simulator:
             messageTable.add_row(message)
         
         return messageTable
+    
+    def headTable(self, input, num_cpus, num_ios) -> Table:
+        cpus=str(num_cpus)
+        ios=str(num_ios)
+        input=str(input)
+        
+        headTable = Table(show_header=True,width=int(self.terminal_width*.9))
+        headTable.add_column(f'[bold green]Process Progress Table[/bold green]', justify = "center")
+        
+        if self.alg != "RR":
+            self.timeSlice = -1
+        algorithms = {
+            "RR": f"Round Robin with Time Slice {self.timeSlice}",
+            "FCFS": "First Come First Serve w/o Priority",
+            "PB": "First Come First Serve with Priority "
+        }
+        headTable.add_row(f'[bold blue]Algorithm Type: [/][bold cyan]{algorithms[self.alg]}[/]')
+        headTable.add_row(f'[bold red]CPUs: [/][bold magenta] {cpus}[/]')
+        headTable.add_row(f'[bold dark_red]IO devices: [/][bold purple4] {ios}[/]')
+        headTable.add_row(f'[bold blue1]Input File Name: [/][bold deep_sky_blue1]{input}[/]')
+       
+        return headTable
     
     def make_row(self, queue):
         """ 
@@ -671,34 +704,11 @@ class Simulator:
         else:
             return ['']
     
-    def headTable(self, input, num_cpus, num_ios) -> Table:
-        cpus=str(num_cpus)
-        ios=str(num_ios)
-        input=str(input)
-        
-        headTable = Table(show_header=True,width=int(self.terminal_width*.9))
-        headTable.add_column(f'[bold green]Process Progress Table[/bold green]', justify = "center")
-        
-        if self.alg != "RR":
-            self.timeSlice = -1
-        algorithms = {
-            "RR": f"Round Robin with Time Slice {self.timeSlice}",
-            "FCFS": "First Come First Serve w/o Priority",
-            "PB": "First Come First Serve with Priority "
-        }
-        headTable.add_row(f'[bold blue]Algorithm Type: [/][bold cyan]{algorithms[self.alg]}[/]')
-        headTable.add_row(f'[bold red]CPUs: [/][bold magenta] {cpus}[/]')
-        headTable.add_row(f'[bold dark_red]IO devices: [/][bold purple4] {ios}[/]')
-        headTable.add_row(f'[bold blue1]Input File Name: [/][bold deep_sky_blue1]{input}[/]')
-       
-        return headTable
-
     def generateTable(self, clock) -> Table:
         """ 
             returns a rich table that displays all the queue contents.
             make_row returns a list of processes in each queue. 
         """  
-        
         # Create the table
         qClock=f'[bold yellow]{str(self.clock.currentTime())}[/]'
         
@@ -715,7 +725,47 @@ class Simulator:
         table.add_row('','Done',*self.make_row("Finished"), end_section=True)
         
         return table
-
+    
+    def runningstatTable(self, clock)-> Table:
+        """
+        generates & displays a table showing the total clock time for completing all PCBs
+        generates & displays a table with various stats from each PCB
+        """
+        #build a rich table
+        # Create the table        
+        sClock=str(self.clock.currentTime())
+        sortedProcesses = sorted(self.processes, key=lambda pcb: pcb.TAT)
+        statTable = Table(show_header=True,width=int(self.terminal_width*.9)) # uses the add_column information to create column headings. 
+        statTable.add_column(f'[bold blue]PID[/bold blue]', width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold][red]Priority[/red][/bold]',  width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold][cyan]Total Time[/cyan][/bold]',  width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold][magenta]Ready Time[/magenta][/bold]',  width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold][green]CPU Time[/green][/bold]',  width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold][magenta]Wait Time[/magenta][/bold]',  width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold][green]IO Time[/green][/bold]',  width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold][red]CPU Util[/red][/bold]',  width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold blue]CPU/IO[/bold blue]', width=int(self.terminal_width*.1),justify='center')
+        statTable.add_column(f'[bold cyan]Run/Idle[/bold cyan]', width=int(self.terminal_width*.1),justify='center')
+                             
+        #statTable.add_row(f'Total Processes Run Time: [bold][yellow]{sClock}[/yellow][/bold]')
+        
+        for pcb in sortedProcesses:
+            statTable.add_row(
+                str(pcb.pid),
+                str(pcb.priority),
+                str(pcb.getTotalTime()),
+                str(pcb.getReadyTime()),
+                str(pcb.cpuTime),
+                str(pcb.getWaitTime()),
+                str(pcb.ioTime),
+                str(pcb.getcpu_util()),
+                str(pcb.cpu_ioRatio()),
+                str(pcb.run_idleRatio())
+                )
+        #print(f'[bold green]Process Run Attribute Data[/bold green]')       
+        #print(statTable)
+        return statTable
+    
 def main(datafile, num_cpus=1, num_ios=1, alg="FCFS", ts=5, sleep=0.01, outputfile="SimStatsData.csv"):
     sim = Simulator(datafile, alg, num_cpus, num_ios, ts, sleep, outputfile)
     print(f'[bold][red] All processes have terminated[/red][/bold]\n')
