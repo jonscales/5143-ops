@@ -465,6 +465,7 @@ class Simulator:
                                     pcb.changeState('Wait')
                                     m3=f'At time[bold yellow] {self.clock.currentTime()}[/]: [bold blue]PCB {pcb.pid}[/] moved to [bold magenta] wait[/]'
                                     messages.append(m3)
+                                    self.CPUQueue.remove(pcb)
                                     if pcb.cpubursts:
                                         pcb.cpubursts.pop(0)
 
@@ -481,7 +482,7 @@ class Simulator:
                                 messages.append(m4)
                             self.readyQueue = self.readyQueue[num_to_assign:]
                         else:
-                            if loopIteration >=1 and not self.readyQueue and not self.IOQueue and not self.CPUQueue and not self.waitQueue:
+                            if loopIteration >=1 and self.CPUQueue==[] and len(self.finishedQueue) == len(self.processes):
                                 complete = True
                                 break
                     else:
@@ -495,14 +496,14 @@ class Simulator:
                                 messages.append(m5)
                             self.readyQueue = self.readyQueue[num_to_assign:]
                         else:
-                            if loopIteration > 1 and not self.readyQueue and not self.IOQueue and not self.CPUQueue and not self.waitQueue:
+                            if loopIteration > 1 and self.CPUQueue==[] and len(self.finishedQueue) == len(self.processes):
                                 complete = True
-                                break
+                                
 
                 elif self.alg == "RR":
                     if self.CPUQueue:
                         for pcb in self.CPUQueue:
-                            if pcb.cpubursts[0] == 0:
+                            if pcb.cpubursts[0] <= 0:
                                 if len(pcb.cpubursts) <= 1:
                                     pcb.changeState('Finished')
                                     m6=f'At time[bold yellow] {self.clock.currentTime()}[/]: [bold blue]PCB {pcb.pid}[/] [bold red]terminated[/]'
@@ -511,6 +512,7 @@ class Simulator:
                                     pcb.getTotalTime()
                                     self.finishedQueue.append(pcb)
                                     pcb.cpubursts.pop(0)
+                                    self.CPUQueue.remove(pcb)
                                 else:
                                     self.waitQueue.append(pcb)
                                     pcb.changeState('Wait')
@@ -518,6 +520,8 @@ class Simulator:
                                     messages.append(m6a)
                                     if pcb.cpubursts:
                                         pcb.cpubursts.pop(0)
+                                    self.CPUQueue.remove(pcb)    
+                                self.CPUQueue = [pcb for pcb in self.CPUQueue if pcb.state == "CPU"]
                             else:
                                 if pcb.cpubursts:
                                     if pcb.cpubursts[0] != 0:
@@ -549,9 +553,9 @@ class Simulator:
                         elif self.CPUQueue and self.IOQueue and not self.readyQueue:                        # if ready is empty, but IO still has processes continue
                             pass
                         else:
-                            if loopIteration > 1 and not self.readyQueue and not self.IOQueue and not self.CPUQueue and not self.waitQueue:
+                            if loopIteration > 1 and len(self.finishedQueue) == len(self.processes):
                                 complete=True
-                                break     
+                        self.CPUQueue = [pcb for pcb in self.CPUQueue if pcb.state == "CPU"]             
                     else:
                         if self.readyQueue and (not self.CPUQueue or len(self.CPUQueue) < self.num_cpus):
                             num_to_assign = min(self.num_cpus - len(self.CPUQueue), len(self.readyQueue))
@@ -562,10 +566,10 @@ class Simulator:
                                 m10=f'At time[bold yellow] {self.clock.currentTime()}[/]: [bold blue]PCB {pcb.pid}[/] entered [bold green]CPU[/]'
                                 messages.append(m10)
                             self.readyQueue = self.readyQueue[num_to_assign:]
-                        elif loopIteration > 1 and not self.readyQueue and not self.IOQueue and not self.CPUQueue and not self.waitQueue:
+                        elif loopIteration > 1 and len(self.finishedQueue) == len(self.processes):
                             complete=True
-                            break 
-
+                    self.CPUQueue = [pcb for pcb in self.CPUQueue if pcb.state == "CPU"]          
+                self.CPUQueue = [pcb for pcb in self.CPUQueue if pcb.state == "CPU"]  
                 # Check if any PCBs in IO Queue are finished
                 if self.IOQueue:
                     next_IOproccesses = []
@@ -602,7 +606,7 @@ class Simulator:
                     self.waitQueue = self.waitQueue[num_to_assign:]
 
                 time.sleep(self.sleepTime)
-                loopIteration +=1
+               
                 clock = self.clock.currentTime()
                 
                 #print(f"end of loop {loopIteration}")
@@ -612,9 +616,11 @@ class Simulator:
                 #layout['header'].update(Panel(self.headTable(self.datfile, self.num_cpus, self.num_ios)))
                 layout['body']['progress'].update(Panel(self.generateTable(clock)))
                 layout['body']['messages'].update(Panel(self.messagesTable(messages)))
+                if self.CPUQueue==[] and len(self.finishedQueue)==len(self.processes):
+                    complete==True
+                loopIteration +=1
                 self.clock.advanceClock(1)    
-                # if not self.CPUQueue and not self.IOQueue and not self.readyQueue and not self.waitQueue and not self.newQueue:
-                #     complete==True
+                
                     
 
         return complete
