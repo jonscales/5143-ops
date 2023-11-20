@@ -388,7 +388,7 @@ class Simulator:
             Layout(name="body",size=20)
                 )
         layout["header"].update(header_panel)
-        layout["body"].split_row(Layout(name="progress",ratio=2), Layout(name="messages",ratio=1))
+        layout["body"].split_row(Layout(name="progress",ratio=3), Layout(name="messages",ratio=1))
         layout["body"]["progress"].update(progress_panel)
         layout["body"]["messages"].update(messages_panel)
         messages=[]
@@ -702,10 +702,10 @@ class Simulator:
         # Create the table
         qClock=f'[bold yellow]{str(self.clock.currentTime())}[/]'
         
-        table = Table(show_header=True,width=int(self.terminal_width*.60)) # uses the add_column information to create column headings. 
-        table.add_column(f'[bold][yellow]Clock[/yellow][/bold]')
-        table.add_column(f'[bold][cyan]Queue[/cyan][/bold]')
-        table.add_column(f'[bold blue]Process[/bold blue], [bold red]Priority[/bold red], [bold green]Burst Time[/bold green]/[bold magenta]Idle Time[/bold magenta]')
+        table = Table(show_header=True) # uses the add_column information to create column headings. 
+        table.add_column(f'[bold][yellow]Clock[/yellow][/bold]', width=int(self.terminal_width*(.66*.08)))
+        table.add_column(f'[bold][cyan]Queue[/cyan][/bold]', width=int(self.terminal_width*(.66*.08)))
+        table.add_column(f'[bold blue]Process[/bold blue], [bold red]Priority[/bold red], [bold green]Burst Time[/bold green]/[bold magenta]Idle Time[/bold magenta]', width=int(self.terminal_width*(.66*.9)))
         
         table.add_row('','New',*self.make_row("New"), end_section=True)
         table.add_row('','Ready',*self.make_row("Ready"), end_section=True)
