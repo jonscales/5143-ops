@@ -39,7 +39,7 @@ During each clock tick the following events occur:
 9. Information for each PCB is displayed to the terminal as a rich table
 10. The clock is incremented +1
 
-The simulation runs as a 'while' loop with the end condition as all states (lists) except Terminated are empty. Each PCB is an instance of a class kept in a dictionary and contains, as attributes, all of the collected data for the PCB as it was passed through the simulated system. 
+The simulation runs as a  ==while== loop with the end condition as all states (lists) except Terminated are empty. Each PCB is an instance of a class kept in a dictionary and contains, as attributes, all of the collected data for the PCB as it was passed through the simulated system. 
 
 #### Simulation Output
 The following information is collected for each PCB regarding its progression through the simulated system:
