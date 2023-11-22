@@ -63,6 +63,8 @@ Each of these data points were displayed both to the terminal as well as written
 - rich Table
 - rich Console
 - rich Live
+- rich Panel
+- rich Layout
 - csv
 - argparse
 
