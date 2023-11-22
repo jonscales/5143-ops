@@ -88,10 +88,10 @@ Each of these data points were displayed both to the terminal as well as written
 
 ### Instructions
 
-- Run [sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) program with parameters from the list below. 
+- Run [sim_layout.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim_layout.py) program with parameters from the list below. 
                                      
 #### Commands List 
-[sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) is run from the command line with these parameters : 
+[sim_layout.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim_layout.py) is run from the command line with these parameters : 
 
 | Parameter |       Syntax       |       notes       |
 | :-----: | :----------------------: | :---------------: |
