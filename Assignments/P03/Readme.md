@@ -69,7 +69,7 @@ Each of these data points were displayed both to the terminal as well as written
 ### Scheduler Simulation Program Files ###
 |                  Program                   |            Description             |        Author         |
 | :----------------------------------------: | :--------------------------------: | :-------------------: |
-|[sim.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim.py) |simulation program based on main with added output display tables|  Scales, Lopez  |
+|[sim_layout.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/sim_layout.py) |simulation program based on main with added output display tables|  Scales, Lopez  |
 |[main.py]() | initial merged version of standalone programs | Lopez, Scales|
 |[fcfsp.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfsp.py)|stand alone file to run priority based FCFS simulation | Scales, Lopez|
 |[fcfs.py](https://github.com/jonscales/5143-opsys-102/blob/main/Assignments/P03/fcfs.py)| stand alone file to run FCFS simulation | Scales, Lopez |
