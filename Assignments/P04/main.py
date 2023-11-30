@@ -14,6 +14,8 @@ class MessageHandler:
 
     def receiver(self):
         """get message from core"""
+        message=received_message
+        
         pass
 
     def passer(self):
@@ -27,9 +29,15 @@ class MessageHandler:
 class CPU:
     
     def __init__(self):
+        
         pass
 
     def parser(self):
+        """ 
+        parse out the incoming hex message
+        """
+        
+        return [part.strip() for part in expression.split()]
         pass
 
     def passToALU(self):
@@ -99,7 +107,23 @@ class ALU:
 
 
 class Registers:
-    pass
+    """
+     this class keeps track of the registers. assigns items to the register (load)
+     The registers are a dictionary.  Each register is a key with it's value. 
+    """
+    def load():
+        """
+        this method is called by assignReg and loads a value into the assigned register
+        """
+        pass
+    def assignReg():
+        """
+        keeps track fo register numbers and assigns next available register when called by load()
+        """
+        #find the largest empty key in the dictionary
+        #assign a register key to a value 
+        #call load?  does this really all just need to happen in a single method - loading and assignment? 
+        pass
 
 
 if __name__ == "__main__":
