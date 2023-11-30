@@ -52,36 +52,67 @@ def mykwargs(argv):
     return args, kargs
 
 
-class BaseConnection:
+class Comms:
+    """Base class for a RabbitMQ connection.
+    host=host, port=int(port), exchange=exch, user=user, pword=pword, routing_keys=keys
+    """
     def __init__(self, **kwargs):
-        self.host = kwargs.get("host", config["host"])
-        self.port = kwargs.get("port", config["port"])
-        self.exchange = kwargs.get("exchange", config["exchange"])
-        self.user = kwargs.get("user", config["user"])
-        self.pword = kwargs.get("pword", config["pword"])
-        self.routing_keys = kwargs.get("routing_keys", config["routing_keys"])
+        """Constructor for BaseConnection class.
+        Params:
+            host (str): IP address of the RabbitMQ server
+            port (int): Port number of the RabbitMQ server
+            exchange (str): Name of the exchange to connect to
+            user (str): Username for the RabbitMQ server
+            pword (str): Password for the RabbitMQ server
+            routing_keys (list<str>): List of routing keys to bind to
+        """
+        config = kwargs.get("config", None)
+        if config:
+            with open(config) as f:
+                config = json.load(f)
+            for k,v in config.items():
+                self.__dict__[k] = v
+        else:
+            self.host = kwargs.get("host", config["host"])
+            self.port = kwargs.get("port", config["port"])
+            self.exchange = kwargs.get("exchange", config["exchange"])
+            self.user = kwargs.get("user", config["user"])
+            self.pword = kwargs.get("pword", config["pword"])
+            self.routing_keys = kwargs.get("routing_keys", config["routing_keys"])
         if not isinstance(self.routing_keys, list):
             self.routing_keys = self.routing_keys.split(",")
-
         self.connection = None
         self.channel = None
-
         if not self.user or not self.pword:
             print("Error: need to instantiate class with a user and password!")
             sys.exit()
-
+    def __str__(self):
+        return (f"Comms(host={self.host}, port={self.port}, exchange={self.exchange}, "
+                f"user={self.user}, routing_keys={self.routing_keys})")
+    def __repr__(self):
+        return (f"Comms(host={repr(self.host)}, port={repr(self.port)}, "
+                f"exchange={repr(self.exchange)}, user={repr(self.user)}, "
+                f"pword='******', routing_keys={repr(self.routing_keys)})")
     def connect(self):
+        """_summary_"""
         credentials = pika.PlainCredentials(self.user, self.pword)
         parameters = pika.ConnectionParameters(self.host, self.port, "/", credentials)
         self.connection = pika.BlockingConnection(parameters)
         self.channel = self.connection.channel()
         self.channel.exchange_declare(exchange=self.exchange, exchange_type="topic")
 
-
-class Receiver(BaseConnection):
+class Receiver(Comms):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # host = kwargs.get("host", config["host"])
+        print(kwargs)
+        if 'callback' in kwargs:
+            self.callback = kwargs['callback']  # callback function to call when a message is received
+        else:
+            self.callback = self.on_message
+        print(f"self.callback: {self.callback}")
+        print(f"self.on.message: {self.on_message}")
+
+        # host = kwargs.get("host", config["host"])se
         # port = kwargs.get("port", config["port"])
         # exchange = kwargs.get("exchange", config["exchange"])
         # user = kwargs.get("user", config["user"])
@@ -91,20 +122,25 @@ class Receiver(BaseConnection):
 
     def on_message(self, ch, method, properties, body):
         print(f"Received message: {body.decode()} on topic: {method.routing_key}")
+    
+# # Declare queues for each group
+# channel.queue_declare(queue='group1_queue')
 
     def start_consuming(self):
         self.connect()
-        self.channel.queue_declare(queue="", exclusive=True)
-        for key in self.routing_keys:
-            self.channel.queue_bind(exchange=self.exchange, queue="", routing_key=key)
+        self.channel.queue_declare(queue="scales_queue")
+        # for key in self.routing_keys:
+        #     self.channel.queue_bind(exchange=self.exchange, queue="", routing_key=key)
+        self.channel.queue_bind(exchange=self.exchange, queue="scales_queue", routing_key='scales.#')
         self.channel.basic_consume(
-            queue="", on_message_callback=self.on_message, auto_ack=True
+            queue="scales_queue", on_message_callback=self.callback, auto_ack=True
         )
+
         print("Waiting for messages. To exit press CTRL+C")
         self.channel.start_consuming()
 
 
-class Sender(BaseConnection):
+class Sender(Comms):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 

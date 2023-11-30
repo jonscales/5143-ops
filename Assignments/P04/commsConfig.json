@@ -1,8 +1,8 @@
 {
   "host": "164.90.134.137",
-  "user": "user1",
-  "pword": "123456789",
+  "user": "Scales",
+  "pword": "WonkyGiraffe637!!!",
   "port": 5672,
-  "exchange": "cpuproject",
-  "routing_keys": "hex"
+  "exchange": "instructions",
+  "routing_keys": "scales.#"
 }
