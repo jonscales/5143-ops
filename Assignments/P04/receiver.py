@@ -13,7 +13,12 @@ def processMessage(ch, method, properties, body):
         print(f"I will not beat off any more")
         data = json.loads(body.decode())
         for instructions in data:
-            print(instructions)
+            
+            for i in instructions:
+                print(i)
+                
+                
+               # print(instructions)
 
 
 class Decoder():
