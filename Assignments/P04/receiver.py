@@ -3,22 +3,70 @@ from comms import mykwargs
 import sys
 import json
 
-
+data1=[[
+    'LOAD R1 814',
+    'LOAD R2 591',
+    'LOAD R3 255',
+    'LOAD R4 73',
+    'LOAD R5 118',
+    'LOAD R6 35',
+    'SUB  R4 R3',
+    'SUB  R5 R3',
+    'SUB  R6 R3',
+    'STORE (R4,R5,R6) (R1,R2)'
+],[
+    'LOAD R1 914',
+    'LOAD R2 691',
+    'LOAD R3 255',
+    'LOAD R4 50',
+    'LOAD R5 100',
+    'LOAD R6 75',
+    'SUB  R4 R3',
+    'SUB  R5 R3',
+    'SUB  R6 R3',
+    'STORE (R4,R5,R6) (R1,R2)'
+],[
+    'LOAD R1 714',
+    'LOAD R2 491',
+    'LOAD R3 255',
+    'LOAD R4 75',
+    'LOAD R5 80',
+    'LOAD R6 25',
+    'SUB  R4 R3',
+    'SUB  R5 R3',
+    'SUB  R6 R3',
+    'STORE (R4,R5,R6) (R1,R2)'
+]]
+[
+    'LOAD R1 814',
+    'LOAD R2 591',
+    'LOAD R3 255',
+    'LOAD R4 73',
+    'LOAD R5 118',
+    'LOAD R6 35',
+    'SUB  R4 R3',
+    'SUB  R5 R3',
+    'SUB  R6 R3',
+    'STORE (R4,R5,R6) (R1,R2)'
+]
 def usage():
     print("Usage: receiver.py <host> <port> <exchange> <routing_keys> ")
     print("Usage: receiver.py 164.90.134.137 5672 cpuproject 'sports,news' ")
     sys.exit()
 
 def processMessage(ch, method, properties, body):
-        print(f"I will not beat off any more")
+        #print(f"I will not beat off any more")
         data = json.loads(body.decode())
-        for instructions in data:
-            
-            for i in instructions:
-                print(i)
+        outfile="messagedata.dat"
+        with open(outfile, 'w',) as outfile:
+            for instructblock in data1:
+                for line in instructblock:
+                    print(line)
+                    outfile.write(line +'\n')
                 
-                
-               # print(instructions)
+               
+
+
 
 
 class Decoder():
@@ -26,6 +74,7 @@ class Decoder():
         print(processMessage)
         self.receiver=Receiver(config=config,callback=processMessage)
         self.receiver.start_consuming()
+
 
     
 

@@ -14,7 +14,8 @@ class MessageHandler:
 
     def receiver(self):
         """get message from core"""
-        message=received_message
+        messages=[]
+        
         
         pass
 
