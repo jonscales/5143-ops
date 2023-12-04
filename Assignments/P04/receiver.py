@@ -53,6 +53,7 @@ def usage():
     print("Usage: receiver.py <host> <port> <exchange> <routing_keys> ")
     print("Usage: receiver.py 164.90.134.137 5672 cpuproject 'sports,news' ")
     sys.exit()
+
 RegD={"R1":0,"R2":0,"R3":0,"R4":0,"R5":0,"R6":0}
 def writereg(loc,val):
     RegD[loc]=val
