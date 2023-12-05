@@ -2,6 +2,7 @@ from comms import Receiver
 from comms import mykwargs
 import sys
 import json
+import requests
 
 data1=[[
     'LOAD R1 814',
@@ -49,6 +50,16 @@ data1=[[
     'SUB  R6 R3',
     'STORE (R4,R5,R6) (R1,R2)'
 ]
+def getAPIroute(self):
+    
+    r = requests.get("http://sendmessage.live:8001/grayscale?num=100")
+    data=[]
+    data.append(r.json())
+    return data
+    #print(r.json())
+    
+   
+
 def usage():
     print("Usage: receiver.py <host> <port> <exchange> <routing_keys> ")
     print("Usage: receiver.py 164.90.134.137 5672 cpuproject 'sports,news' ")
@@ -102,16 +113,6 @@ def processMessage(ch, method, properties, body):
                     
             print(RegD)
             print("\n")  
-
-
-
-        
-            
-        
-   
-                  
-               
-
 
 
 
